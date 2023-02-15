@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br><br>
+
+    <h3 style="text-align: center; font-weight: 700;">Are you sure you want to Update {{obj.todo}} ?</h3>
+
+    <br><br><br>
+<div class="container text-center">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+    
+</div>
+
+{% endblock content %}

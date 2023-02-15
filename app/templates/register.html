@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>My Todo App</title>
+</head>
+<body>
+
+
+
+<style>
+    .img-overlay img {
+        margin: 0 auto;
+        max-height: 100%;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(https://cdn.pixabay.com/photo/2016/10/17/14/31/background-1747786_960_720.jpg);
+      }
+      .card{
+        margin: 0px auto !important;
+       
+      }
+
+ 
+</style>
+<div class="img-overlay">
+    <img src="file.jpg">
+    <div class="overlay">
+        <div class="container" style=" padding-top: 150px;">
+            <div class="card  text-center" style="width: 55rem;">
+                <div class="card-body">     
+
+      
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		There was an error with your form...
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>
+
+{% endif %}	
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+<h1>Register</h1>
+<br/>
+
+
+	<form action="{% url 'register_user' %}" method=POST>
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		
+<br/><br/>
+		<input type="submit" value="Register" class="btn btn-secondary">
+
+	</form><br/>
+	Already have an account?  <a href="{% url 'login' %}">Login</a>
+</div>
+<br/><br/>
+
+    </div>
+  </div>
+</div>
+</div>
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

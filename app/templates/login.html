@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>My Todo App</title>
+</head>
+<body>
+
+
+
+<style>
+    .img-overlay img {
+        margin: 0 auto;
+        max-height: 100%;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(https://cdn.pixabay.com/photo/2016/10/17/14/31/background-1747786_960_720.jpg);
+      }
+      .card{
+        margin: 0px auto !important;
+       
+      }
+      .form-control{
+        width: 40rem !important;
+        margin: 0px auto !important;
+      }
+      .form-label{
+        padding-right: 331px !important;
+      }
+</style>
+
+<div class="img-overlay">
+    <img src="file.jpg">
+    <div class="overlay">
+        <div class="container" style=" padding-top: 150px;">
+            <div class="card  text-center" style="width: 47rem;">
+                <div class="card-body">     
+                    {% if form.errors %}
+                        <h1 style="color: black;">There was an error with your form...</h1>    
+                    {% endif %}	
+        <h3 style="font-weight: 700; font-size: 19px;">Welcome to my TodoApp</h3>
+       <h3 style="font-size: 21px; color: crimson; font-weight: 700;"> Login</h3>
+        <br>
+                <form action="" method=POST>
+                    {% csrf_token %}
+        
+                <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+            <br>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <br>
+        
+          
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+        
+                </form>
+          <h4>     Don't have an account? <a href="{% url 'register_user' %}">Sign up</a></h4>
+        
+        <br/><br/>	
+
+    </div>
+  </div>
+</div>
+</div>
+
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 style="text-align: center;">
+<a href="{% url 'login' %}">Logout</a>
+</h3>
+
+
+<br><br>
+<h3 style="text-align: center;font-weight:700; color: crimson; text-decoration: underline;">Hello Welcome to MyToDo App</h3>
+
+<br><br>
+<div class="container">
+ 
+
+<div class="container text-center" >
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+
+
+
+<br><br>
+	<div class="row  text-center">
+        
+        <div class="col-md-12">
+        <div class="table-responsive">
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   <th><input type="checkbox" id="checkall" /></th>
+                   <th>Date</th>
+                    <th>Todo</th>
+                     <th>Update</th>
+                     <th>Delete</th>
+                   </thead>
+    <tbody>
+        {% for x in obj %}	
+    
+    <tr>
+    <td><input type="checkbox" class="checkthis" /></td>
+    <td>{{ x.date  }}</td>
+    <td>{{ x.todo  }}</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit">
+        <a href="{% url 'update' x.id %}"> <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>
+        </button></p></a></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete">
+        <a href="{% url 'delete' x.id %}"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
+        </p></a>
+    </td>
+    </tr>
+    
+    </tbody>
+    {% endfor %}      
+</table>
+
+
+
+    
+  
+
+
+  {% endblock content %}
+
+
+
+
+
+
+  
